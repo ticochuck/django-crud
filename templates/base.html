@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +8,13 @@
     {% block title %}
         <title>Document</title>
     {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
         <ul>
-            <li>Home <a href= "{% url 'home' %}">Home</a></li>
-            <li>Create <a href= "{% url 'create' %}">Create</a></li>
+            <li><a href= "{% url 'home' %}">Home</a></li>
+            <li><a href= "{% url 'create' %}">Add a Record</a></li>
         </ul>
     </header>
     <main>
@@ -19,5 +22,8 @@
         <h1>placeholder</h1>
         {% endblock content %}
     </main>
+    <footer>
+        <p>© 2020 Copyright - Chuck Li Villalobos</p>
+    </footer>
 </body>
 </html>
