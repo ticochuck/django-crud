@@ -52,20 +52,21 @@ class TestModels(TestCase):
 
 
     def test_post(self):
-        self.assertEqual(self.records, self.record)
+        self.assertEqual(self.record, self.records)
 
     
     def test_model_title(self):
         self.assertEqual(self.record.title, self.records.title)
 
 
-    # def test_create_redirect_home(self):
-    #     response = self.client.post(reverse("create", {
-    #         "title" : "one",
-    #         "author" : self.user,
-    #         "artist" : "U2",
-    #         "description" : "One from U2"
-    #     }, follow=True))
+    def test_create_redirect_home(self):
+        response = self.client.post(reverse("create"), {
+            "title" : "one",
+            "author" : self.user,
+            "artist" : "U2",
+            "description" : "One from U2"
+        }
+        , follow=True)
 
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "home.html")
+        self.assertEqual(response.status_code, 200)
+        

@@ -6,6 +6,14 @@
 
 
 {% block content %}
-<h1>This is the home page</h1>
+<h1>Your Records</h1>
+
+<ul>
+    {% for record in object_list %}
+    <li><a href="{% url 'detail_view' record.id %}">{{record.title}}, {{record.artist}}</a></li>
+    {% endfor %}
+</ul>
+
+
 {% endblock content %}
 
